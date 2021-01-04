@@ -60,8 +60,6 @@ if __name__ == '__main__':
     h1.cmd("route add -net 192.168.0.0 netmask 255.255.255.0 gw 10.0.0.100 " +
            "h1-eth1.10")
 
-    # h1.cmd("route add -net 192.168.0.0 netmask 255.255.255.0 gw 10.0.0.100 " +
-    #        "h1-eth1")
 
     h6.cmd("ifconfig h6-eth1 0")
     h6.cmd("vconfig add h6-eth1 20")
