@@ -36,7 +36,7 @@ if __name__ == '__main__':
     h5 = net.addHost('h5', mac="00:00:00:00:00:a5", ip='192.168.5.1/24')
 #    h5 = net.addHost('h5', cls=VLANHost, vlan=100, mac="00:00:00:00:00:a5", ip='192.168.5.1/24')
 #    h6 = net.addHost('h6', cls=VLANHost, vlan=200, mac="00:00:00:00:00:a6", ip='192.168.6.1/24')
-    h6 = net.addHost('h6', mac="00:00:00:00:00:a6", ip='192.168.6.1/24')
+    h6 = net.addHost('h6', mac="00:00:00:00:00:a6", ip='192.168.1.6/24')
 
     net.addLink(h1, s3, port1=1, port2=1)
     net.addLink(h2, s3, port1=1, port2=2)
@@ -77,7 +77,7 @@ if __name__ == '__main__':
            "h4-eth1")
     h5.cmd("route add -net 0.0.0.0 gw 192.168.5.254 " +
            "h5-eth1")
-    h6.cmd("route add -net 0.0.0.0 gw 192.168.6.254 " +
+    h6.cmd("route add -net 0.0.0.0 gw 192.168.1.254 " +
            "h6-eth1")
 
     CLI(net)

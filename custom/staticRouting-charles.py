@@ -27,15 +27,13 @@ if __name__ == '__main__':
     s4 = net.addSwitch('s4', protocols='OpenFlow13')
 
     #
-#    h1 = net.addHost('h1', cls=VLANHost, vlan=100, mac="00:00:00:00:00:a1", ip='192.168.1.1/24')
+#    h1 = net.addHost('h1', cls=VLANHost, vlan=10, mac="00:00:00:00:00:a1", ip='192.168.1.1/24')
     h1 = net.addHost('h1', mac="00:00:00:00:00:a1", ip='192.168.1.1/24')
-#    h2 = net.addHost('h2', cls=VLANHost, vlan=200, mac="00:00:00:00:00:a2", ip='192.168.1.2/24')
+#    h2 = net.addHost('h2', cls=VLANHost, vlan=10, mac="00:00:00:00:00:a2", ip='192.168.1.2/24')
     h2 = net.addHost('h2', mac="00:00:00:00:00:a2", ip='192.168.1.2/24')
     h3 = net.addHost('h3', mac="00:00:00:00:00:a3", ip='192.168.1.3/24')
     h4 = net.addHost('h4', mac="00:00:00:00:00:a4", ip='192.168.4.1/24')
     h5 = net.addHost('h5', mac="00:00:00:00:00:a5", ip='192.168.5.1/24')
-#    h5 = net.addHost('h5', cls=VLANHost, vlan=100, mac="00:00:00:00:00:a5", ip='192.168.5.1/24')
-#    h6 = net.addHost('h6', cls=VLANHost, vlan=200, mac="00:00:00:00:00:a6", ip='192.168.6.1/24')
     h6 = net.addHost('h6', mac="00:00:00:00:00:a6", ip='192.168.6.1/24')
 
     net.addLink(h1, s3, port1=1, port2=1)
@@ -60,18 +58,16 @@ if __name__ == '__main__':
     s4.start([c0])
 
     #h2.cmd("ifconfig h2-eth1 0")
-    #h2.cmd("vconfig add h2-eth1.100")
-    #h2.cmd("ifconfig h2-eth1.100 192.168.1.2/24")
+    #h2.cmd("vconfig add h2-eth1 10")
+    #h2.cmd("ifconfig h2-eth1.10 192.168.1.2/24")
     #h1.cmd("route add -net 192.168.1.0 netmask 255.255.255.0 gw 10.0.0.100 " +
-    #        "h1-eth1.100")
+    #        "h1-eth1.10")
 
     #h1.cmd("route add -net 0.0.0.0 gw 192.168.1.254 " +
-    #       "h1-eth1.100")
-    h1.cmd("route add -net 0.0.0.0 gw 192.168.1.254 " +
-           "h1-eth1")
+    #       "h1-eth1")
     h2.cmd("route add -net 0.0.0.0 gw 192.168.1.254 " +
-           "h2-eth1")
-    h3.cmd("route add -net 0.0.0.0 gw 192.168.1.254 " +
+           "h2-eth1.10")
+    h3.cmd("route add -net 0.0.0.0 gw 192.168.3.254 " +
            "h3-eth1")
     h4.cmd("route add -net 0.0.0.0 gw 192.168.4.254 " +
            "h4-eth1")

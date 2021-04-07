@@ -20,10 +20,10 @@ if __name__ == '__main__':
                            ip="192.168.3.1", port=6653)
 
     # 新增switch
-    s1 = net.addSwitch('s1')
-    s2 = net.addSwitch('s2')
-    s3 = net.addSwitch('s3')
-    s4 = net.addSwitch('s4')
+    s1 = net.addSwitch('s1', protocols='OpenFlow13')
+    s2 = net.addSwitch('s2', protocols='OpenFlow13')
+    s3 = net.addSwitch('s3', protocols='OpenFlow13')
+    s4 = net.addSwitch('s4', protocols='OpenFlow13')
 
     #
     h1 = net.addHost('h1', mac="00:00:00:00:00:a1")
